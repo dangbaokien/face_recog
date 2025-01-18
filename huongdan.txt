@@ -1,0 +1,16 @@
+Quy trình thực tế thường diễn ra như sau:
+
+1. Khi khuôn mặt mới được nhận diện:
+
+Trích xuất vector đặc trưng từ ảnh khuôn mặt.
+Thêm vector đặc trưng vào index tìm kiếm gần đúng (Faiss/Annoy).
+Cập nhật cơ sở dữ liệu SQL/NoSQL với thông tin của người dùng.
+
+2. Khi có yêu cầu nhận diện:
+
+Trích xuất vector đặc trưng từ khuôn mặt đầu vào.
+Tìm kiếm các vector gần nhất trong Faiss/Annoy để nhận diện người dùng.
+việc tìm kiếm bằng cách so sánh vector đặc trưng với các vector tâm cụm, rồi 
+tìm ra các tâm gần nhất, sau đó sẽ tìm chi tiết từng cụm đó để cải thiện tốc độ.
+Sử dụng cơ sở dữ liệu SQL/NoSQL để lấy thông tin người dùng liên quan 
+đến vector gần nhất.
